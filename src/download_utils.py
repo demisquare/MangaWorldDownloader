@@ -1,6 +1,7 @@
 """Utilities for handling file downloads with progress tracking."""
 
 import logging
+import re
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -18,6 +19,7 @@ from .config import (
     SESSION_LOG,
     TASK_COLOR,
     TIMEOUT,
+    URL_FILENAME_REGEX,
 )
 from .file_utils import create_download_directory, write_file
 
@@ -92,7 +94,8 @@ def attempt_download_page(
     Returns True if download succeeded, False otherwise.
     """
     for extension in PAGE_EXTENSIONS:
-        test_download_link = f"{base_download_link}{page}{extension}"
+        cleaned_base_link = re.sub(URL_FILENAME_REGEX, "", base_download_link)
+        test_download_link = f"{cleaned_base_link}{page}{extension}"
 
         try:
             response = SESSION.get(

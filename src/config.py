@@ -23,6 +23,7 @@ FIRST_PAGE_SUFFIX_REGEX = r"1\.(png|gif|jpg)$"
 MANGA_TYPE_REGEX = r'"typeT":\s*"([^"]*)"'
 COOKIE_REGEX = r'document\.cookie="([^;]+)'
 LINK_REGEX = r'location\.href="([^"]+)"'
+URL_FILENAME_REGEX = r"[^/]+\.[^/]+$"
 
 # ============================
 # Download Settings
