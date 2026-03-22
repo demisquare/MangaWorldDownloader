@@ -9,6 +9,8 @@ from argparse import ArgumentParser, Namespace
 import requests
 from PIL import ImageFile
 
+from .version import get_version_string
+
 # ============================
 # Paths and Files
 # ============================
@@ -84,6 +86,12 @@ def add_common_arguments(parser: ArgumentParser) -> None:
         "--volume",
         action="store_true",
         help="Specify a volume to download (use 'all' to get all volumes).",
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=get_version_string(),
+        help="Show program's version and exit.",
     )
 
 

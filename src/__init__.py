@@ -17,9 +17,14 @@ This package is designed to be reusable and modular, allowing its components to 
 easily imported and used across different parts of the application.
 """
 
-# helpers/__init__.py
+# src/__init__.py
+
+from .version import __author__, __title__, __version__, version_info
 
 __all__ = [
+    "__author__",
+    "__title__",
+    "__version__",
     "config",
     "crawler_utils",
     "download_utils",
@@ -28,4 +33,5 @@ __all__ = [
     "general_utils",
     "pdf_generator",
     "progress_utils",
+    "version_info",
 ]
